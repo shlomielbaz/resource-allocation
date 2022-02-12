@@ -1,10 +1,14 @@
 # Resource Allocation System
 
+### Main Page:
 ![bottle app](static/img/ras-app.png)
+
+### Add New Resource:
+![bottle app](static/img/ras-add.png)
 
 ## Setup
 
-To run this app locally:
+To run this app locally (windows):
 
 * Create a virtual env and activate it:
   * python -m venv <ABSOLUTE PATH>\venv
