@@ -2,9 +2,19 @@
 
 ### Main Page:
 ![bottle app](static/img/ras-app.png)
+<br /><br />
+
+### Delete Resource:
+![bottle app](static/img/ras-del.png)
+<br /><br />
 
 ### Add New Resource:
 ![bottle app](static/img/ras-add.png)
+<br /><br />
+
+### Edit Resource:
+![bottle app](static/img/ras-edit.png)
+<br /><br />
 
 ## Setup
 
