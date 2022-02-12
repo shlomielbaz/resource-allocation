@@ -1,18 +1,16 @@
-import os
-
 from bottle import route, run, request, static_file, view, response
-
 from data import resources as db
+
 
 @route('/static/<filename:path>')
 def send_static(filename):
     return static_file(filename, root='static')
 
+
 @route('/new', method='POST')
 def new():
     _body = request.json
 
-    print(request)
     _data = db.add_resource({
         'name': _body['name'],
         'type': _body['type'],
@@ -21,12 +19,50 @@ def new():
     response.status = 200
     return dict(message="OK")
 
-# register
-# release
+
+@route('/new', method='GET')
+@view('resource-editor')
+def new():
+    return {'search_tag': '', 'resource': None}
+
+
+@route('/edit/<id>', method='PUT')
+def edit(id: int):
+    _body = request.json
+
+    resource = db.get_resource({
+        'id': id
+    })
+
+    db.set_resource(resource, _body)
+
+    response.status = 200
+    return dict(message="OK")
+
+
+@route('/edit/<id>', method='GET')
+@view('resource-editor')
+def edit(id: int):
+    resource = db.get_resource({
+        'id': id
+    })
+    return {'search_tag': '', 'resource': resource}
+
+
+@route('/del/<id>', method='GET')
+def remove(id: int):
+    resource = db.get_resource({
+        'id': id
+    })
+
+    db.del_resource(resource)
+
+    response.status = 200
+    return dict(message="OK")
 
 
 @route('/release/<id>', method='GET')
-def register(id):
+def register(id: int):
     resource = db.get_resource({
         'id': id
     })
@@ -35,8 +71,9 @@ def register(id):
     })
     return 'OK'
 
+
 @route('/register/<id>', method='GET')
-def register(id):
+def register(id: int):
     resource = db.get_resource({
         'id': id
     })
@@ -44,18 +81,6 @@ def register(id):
         'is_occupied': 1
     })
     return 'OK'
-
-@route('/new', method='GET')
-@view('resource-editor')
-def new():
-    return {'search_tag': '', 'resources': ''}
-
-
-@route('/resources')
-@view('resources')
-def index():
-    resource = db.get_resources()
-    return {'resources': resource}
 
 
 @route('/')
