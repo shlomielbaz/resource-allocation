@@ -1,0 +1,6 @@
+*swp
+*db
+.cache
+**__pycache__/
+venv
+.idea

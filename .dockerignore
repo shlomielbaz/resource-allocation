@@ -1,0 +1,11 @@
+.gitignore
+.dockerignore
+.idea
+Dockerfile
+Dockerfile_alpine
+Dockerfile_old
+Dockerfile_slim
+Procfile
+README.md
+bash.bashrc
+runtime.txt
