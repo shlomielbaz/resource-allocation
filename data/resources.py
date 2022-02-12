@@ -29,7 +29,13 @@ def set_resource(resource: object, data: dict):
 
 
 def add_resource(data: dict):
-    vendor = Resource(data)
-    session.add(vendor)
+    resource = Resource(data)
+    session.add(resource)
+
+    return session.commit()
+
+
+def del_resource(resource: object):
+    session.delete(resource)
 
     return session.commit()
