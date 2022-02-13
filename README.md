@@ -36,3 +36,8 @@ To run this app locally (windows):
 * Build and run the app using Docker:
   * docker build . -t resource/allocation:v1.0
   * docker run -p 8080:80 -d resource/allocation:v1.0
+
+ ## Bibliography
+ * [Resource allocation systems](https://ifs.host.cs.st-andrews.ac.uk/Books/SE9/Web/Architecture/AppArch/ResAlloc.html)
+ * [Resource Allocation System &#40;RAS&#41;](https://citizen-network.org/library/resource-allocation-system-ras.html)
+ 
